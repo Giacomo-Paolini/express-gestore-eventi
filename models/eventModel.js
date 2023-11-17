@@ -44,6 +44,16 @@ class Event {
             console.error(err.message);
         }
     }
+
+    static getEvents(event) {
+        const dbPath = path.join(__dirname, '..', 'db', 'events.json');
+
+        const db = fs.readFileSync(dbPath, 'utf-8');
+
+        db.forEach(element => {
+            element.id === event.id
+        });
+    }
 }
 
 module.exports = Event;
