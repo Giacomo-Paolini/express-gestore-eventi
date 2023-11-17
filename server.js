@@ -10,7 +10,7 @@ const host = process.env.HOST;
 app.use(express.static('public'))
 
 app.get('/events', (req, res) => {
-    res.send('home')
+    res.send('events')
 })
 
 app.listen(port || 3000, () => {
