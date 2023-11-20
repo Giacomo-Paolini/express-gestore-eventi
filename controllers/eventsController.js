@@ -1,6 +1,7 @@
 const events = require('../db/events.json')
 const Event = require('../models/eventModel')
 const db = require('../db/events.json')
+const { get } = require('../routers/eventsRouters')
 
 function index (req, res) {
     res.format ({
@@ -31,8 +32,9 @@ function store (req, res) {
 };
 
 function update (req, res) {
-    const id = req.params.id;
-    console.log(id);
+    const eventId = req.params.id;
+    const data = Event.getEvents(eventId);
+    res.send(data);
 };
 
 module.exports = {

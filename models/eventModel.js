@@ -45,14 +45,19 @@ class Event {
         }
     }
 
-    static getEvents(event) {
+    static getEvents(eventId) {
         const dbPath = path.join(__dirname, '..', 'db', 'events.json');
-
         const db = fs.readFileSync(dbPath, 'utf-8');
+        const dbParse = JSON.parse(db);
 
-        db.forEach(element => {
-            element.id === event.id
-        });
+        if (eventId == "all") {
+            const all = JSON.stringify(dbParse);
+            return all;
+        } else {
+            const event = dbParse.find(event => event.id == eventId);
+            const eventJson = JSON.stringify(event);
+            return eventJson;
+        }
     }
 }
 
