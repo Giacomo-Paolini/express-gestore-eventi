@@ -3,7 +3,7 @@ const dotenv = require('dotenv');
 const eventsRouter = require('./routers/eventsRouters')
 const bodyParser = require('body-parser');
 const errorsFormatter = require('./middlewares/errorsFormatter');
-const routerNotFound = require('./middlewares/routerNotFound');
+const routerNotFound = require('./middlewares/routeNotFound');
 
 const app = express();
 dotenv.config();
